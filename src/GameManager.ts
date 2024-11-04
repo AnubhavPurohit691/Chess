@@ -11,8 +11,6 @@ export class GameManager{
         this.games = [];
         this.pendingUser=null
         this.users=[]
-       
-
     }
     addUser(socket:WebSocket){    
     this.users.push(socket) 
@@ -27,6 +25,7 @@ private addHandle(socket:WebSocket){
     socket.on("message",(data)=>{   
         const message = JSON.parse(data.toString())
         if(message.type===INIT_GAME){
+            
             if(this.pendingUser){
                 // start game logic
                 const game = new Game(this.pendingUser,socket)
