@@ -5,7 +5,7 @@ const wss = new WebSocketServer({ port: 8080 });
 
 const gamemanager = new GameManager();
 wss.on('connection', function connection(ws) {
-    gamemanager.addgUser(ws)
+    gamemanager.addUser(ws)
   ws.on("disconnect",function remove(ws){
     gamemanager.removeUser(ws)
   })
